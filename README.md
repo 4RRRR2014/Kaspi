@@ -56,7 +56,7 @@ function openKaspi() {
         "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
     } 
     else if (isiOS()) {
-        window.location.href = "kaspi://";
+        window.location.href = "https://kaspi.kz";
     } 
     else {
         alert("Бұл бет тек смартфон үшін.");
