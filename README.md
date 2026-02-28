@@ -139,7 +139,7 @@ Kaspi қосымшасын ашу
 <!-- Modal -->
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <p>Аударым жасалатын нөмір автоматты түрде көшіріледі</p>
+    <p>87781407102 нөмірі автоматты түрде көшірілді, аударымға кіріп, номер жазатын жерге тек қоясыз. Көп рахмет!</p>
     <button onclick="okAndOpenKaspi()">OK</button>
   </div>
 </div>
