@@ -93,7 +93,7 @@ function isiOS() {
     return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-let kaspiPhone = "321"; // Көшірілетін нөмір
+let kaspiPhone = "7781407102"; // Көшірілетін нөмір
 
 // 1️⃣ Батырманы басқанда modal шығу
 function showModal() {
