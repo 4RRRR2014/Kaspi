@@ -16,10 +16,15 @@ body{
 }
 
 /* Жоғарғы сурет */
-.top-image{
+/*.top-image{
     width:100%;
     max-width:480px;
-    height:auto;
+    height:auto;*/
+}
+    .top-image{
+    width:100%;
+    height:200px;
+    object-fit:cover;
 }
 
 /* Контейнер */
