@@ -90,7 +90,7 @@ function openKaspi() {
 <body>
 
 <!-- 📌 ЖОҒАРҒЫ СУРЕТ -->
-<img src="Whats.jpg" alt="Жоғарғы сурет" class="top-image">
+<img src="Whats.jpeg" alt="Жоғарғы сурет" class="top-image">
 
 <div class="container">
 
