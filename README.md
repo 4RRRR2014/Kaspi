@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="kk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaspi ашу</title>
+<title>Kaspi ашу1</title>
 
 <style>
 body{
@@ -26,6 +25,12 @@ button{
     background:#E60012;
     color:#fff;
 }
+.note{
+    position:absolute;
+    bottom:40px;
+    font-size:13px;
+    color:#666;
+}
 </style>
 
 <script>
@@ -38,12 +43,20 @@ function isiOS() {
 }
 
 function openKaspi() {
+    const phone = "7781407102";
+
+    // 1️⃣ Нөмірді көшіру
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(phone).catch(()=>{});
+    }
+
+    // 2️⃣ Kaspi ашу
     if (isAndroid()) {
         window.location.href =
         "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
     } 
     else if (isiOS()) {
-        window.location.href = "https://kaspi.kz";
+        window.location.href = "kaspi://";
     } 
     else {
         alert("Бұл бет тек смартфон үшін.");
@@ -57,6 +70,10 @@ function openKaspi() {
 <button onclick="openKaspi()">
 Kaspi қосымшасын ашу
 </button>
+
+<div class="note">
+Нөмір автоматты түрде көшіріледі
+</div>
 
 </body>
 </html>
