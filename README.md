@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaspi ашу1</title>
+<title>Kaspi ашу</title>
 
 <style>
 body{
@@ -10,13 +10,29 @@ body{
     font-family:-apple-system,BlinkMacSystemFont,sans-serif;
     background:#f2f2f7;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    height:100vh;
+    min-height:100vh;
 }
+
+/* Жоғарғы сурет */
+.top-image{
+    width:100%;
+    max-width:480px;
+    height:auto;
+}
+
+/* Контейнер */
+.container{
+    width:100%;
+    max-width:480px;
+    padding:20px;
+    text-align:center;
+}
+
+/* Батырма */
 button{
-    width:90%;
-    max-width:400px;
+    width:100%;
     padding:16px;
     font-size:16px;
     font-weight:600;
@@ -24,12 +40,20 @@ button{
     border-radius:14px;
     background:#E60012;
     color:#fff;
+    margin-top:20px;
 }
+
+/* Төменгі сурет */
+.bottom-image{
+    width:100%;
+    margin-top:20px;
+    border-radius:14px;
+}
+
 .note{
-    position:absolute;
-    bottom:40px;
     font-size:13px;
     color:#666;
+    margin-top:10px;
 }
 </style>
 
@@ -45,18 +69,16 @@ function isiOS() {
 function openKaspi() {
     const phone = "7781407102";
 
-    // 1️⃣ Нөмірді көшіру
     if (navigator.clipboard) {
         navigator.clipboard.writeText(phone).catch(()=>{});
     }
 
-    // 2️⃣ Kaspi ашу
     if (isAndroid()) {
         window.location.href =
         "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
     } 
     else if (isiOS()) {
-        window.location.href = "https://kaspi.kz";
+        window.location.href = "kaspi://";
     } 
     else {
         alert("Бұл бет тек смартфон үшін.");
@@ -67,12 +89,22 @@ function openKaspi() {
 </head>
 <body>
 
+<!-- 📌 ЖОҒАРҒЫ СУРЕТ -->
+<img src="Whats.jpg" alt="Жоғарғы сурет" class="top-image">
+
+<div class="container">
+
 <button onclick="openKaspi()">
 Kaspi қосымшасын ашу
 </button>
 
 <div class="note">
-Аударым жасалатны телефон нөмірі автоматты түрде көшіріледі
+Нөмір автоматты түрде көшіріледі
+</div>
+
+<!-- 📌 ТӨМЕНГІ СУРЕТ -->
+<img src="bottom-image.jpg" alt="Төменгі сурет" class="bottom-image">
+
 </div>
 
 </body>
