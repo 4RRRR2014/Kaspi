@@ -51,9 +51,9 @@ button{
     margin-top:8px;
 }
 
-/* 🌟 Modal стилі */
+/* Modal стилі */
 .modal {
-    display: none; /* бастында жасырын */
+    display: none;
     position: fixed;
     z-index: 999;
     left: 0;
@@ -61,12 +61,12 @@ button{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5); /* жартылай қара фонда */
+    background-color: rgba(0,0,0,0.5);
 }
 
 .modal-content {
     background-color: #fff;
-    margin: 20% auto;
+    margin: 25% auto;
     padding: 20px;
     border-radius: 12px;
     width: 80%;
@@ -93,15 +93,23 @@ function isiOS() {
     return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-function openKaspi() {
-    const phone = "321"; // мысалы, көшірілетін нөмір
+let kaspiPhone = "321"; // Көшірілетін нөмір
 
+// 1️⃣ Батырманы басқанда modal шығу
+function showModal() {
     // Нөмірді буферге көшіру
     if (navigator.clipboard) {
-        navigator.clipboard.writeText(phone).catch(()=>{});
+        navigator.clipboard.writeText(kaspiPhone).catch(()=>{});
     }
 
-    // Kaspi қосымшасын ашу
+    // Modal көрсету
+    document.getElementById("myModal").style.display = "block";
+}
+
+// 2️⃣ OK батырмасын басқанда Kaspi қосымшасын ашу
+function okAndOpenKaspi() {
+    document.getElementById("myModal").style.display = "none";
+
     if (isAndroid()) {
         window.location.href =
         "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
@@ -112,14 +120,6 @@ function openKaspi() {
     else {
         alert("Бұл бет тек смартфон үшін.");
     }
-
-    // 🌟 Modal көрсету
-    document.getElementById("myModal").style.display = "block";
-}
-
-// 🌟 Modal OK кнопкасын басқанда жабу
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
 }
 </script>
 
@@ -130,21 +130,17 @@ function closeModal() {
 
 <div class="container">
 
-<button onclick="openKaspi()">
+<button onclick="showModal()">
 Kaspi қосымшасын ашу
 </button>
 
-<div class="note">
-<b>Аударым жасалатын нөмір автоматты түрде көшіріледі</b>
 </div>
 
-</div>
-
-<!-- 🌟 Modal HTML -->
+<!-- Modal -->
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <p>321 номері көшірілді</p>
-    <button onclick="closeModal()">OK</button>
+    <p>Аударым жасалатын нөмір автоматты түрде көшіріледі</p>
+    <button onclick="okAndOpenKaspi()">OK</button>
   </div>
 </div>
 
