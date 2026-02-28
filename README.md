@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaspi ашу</title>
+<title>Аударым жасау</title>
 
 <style>
 body{
@@ -43,11 +43,7 @@ button{
     margin-top:20px;
 }
 
-/* Төменгі сурет */
-.bottom-image{
-    width:100%;
-    margin-top:20px;
-    border-radius:14px;
+
 }
 
 .note{
@@ -78,7 +74,7 @@ function openKaspi() {
         "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
     } 
     else if (isiOS()) {
-        window.location.href = "kaspi://";
+        window.location.href = "https://kaspi.kz;
     } 
     else {
         alert("Бұл бет тек смартфон үшін.");
@@ -99,11 +95,9 @@ Kaspi қосымшасын ашу
 </button>
 
 <div class="note">
-Нөмір автоматты түрде көшіріледі
+<b>Аударым жасалатын нөмір автоматты түрде көшіріледі</b>
 </div>
 
-<!-- 📌 ТӨМЕНГІ СУРЕТ -->
-<img src="bottom-image.jpg" alt="Төменгі сурет" class="bottom-image">
 
 </div>
 
