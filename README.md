@@ -1,37 +1,30 @@
+<!DOCTYPE html>
 <html lang="kk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaspi Төлем</title>
+<title>Kaspi ашу</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f2f2f7;
-    text-align: center;
+body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#f2f2f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
-
-.container {
-    max-width: 480px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-button {
-    width: 100%;
-    padding: 16px;
-    border-radius: 14px;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.kaspi {
-    background: #E60012;
-    color: white;
+button{
+    width:90%;
+    max-width:400px;
+    padding:16px;
+    font-size:16px;
+    font-weight:600;
+    border:none;
+    border-radius:14px;
+    background:#E60012;
+    color:#fff;
 }
 </style>
 
@@ -44,24 +37,16 @@ function isiOS() {
     return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-function copy(phone) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(phone).catch(()=>{});
-    }
-}
-
-function openKaspi(phone) {
-    copy(phone);
-
+function openKaspi() {
     if (isAndroid()) {
         window.location.href =
-        "intent://transfers#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
-    }
+        "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
+    } 
     else if (isiOS()) {
-        window.location.href = "kaspi://transfers";
-    }
+        window.location.href = "kaspi://";
+    } 
     else {
-        alert("Тек смартфоннан ашыңыз");
+        alert("Бұл бет тек смартфон үшін.");
     }
 }
 </script>
@@ -69,17 +54,9 @@ function openKaspi(phone) {
 </head>
 <body>
 
-<div class="container">
-
-<h2>Kaspi арқылы аударым</h2>
-<p>+7 700 123 45 67</p>
-
-<button class="kaspi"
-onclick="openKaspi('77001234567')">
-Kaspi ашу
+<button onclick="openKaspi()">
+Kaspi қосымшасын ашу
 </button>
-
-</div>
 
 </body>
 </html>
