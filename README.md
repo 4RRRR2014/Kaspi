@@ -16,22 +16,18 @@ body{
 }
 
 /* Жоғарғы сурет */
-/*.top-image{
+.top-image{
     width:100%;
     max-width:480px;
-    height:auto;*/
-}
-    .top-image{
-    width:100%;
-    height:200px;
-    object-fit:cover;
+    height:auto;
+    margin-bottom:10px;
 }
 
 /* Контейнер */
 .container{
     width:100%;
     max-width:480px;
-    padding:20px;
+    padding:10px 20px;
     text-align:center;
 }
 
@@ -45,16 +41,46 @@ button{
     border-radius:14px;
     background:#E60012;
     color:#fff;
-    margin-top:0;
+    margin-top:5px;
 }
 
-
-}
-
+/* Ескерту мәтіні */
 .note{
     font-size:13px;
     color:#666;
-    margin-top:10px;
+    margin-top:8px;
+}
+
+/* 🌟 Modal стилі */
+.modal {
+    display: none; /* бастында жасырын */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* жартылай қара фонда */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 300px;
+    text-align:center;
+    font-size:16px;
+}
+
+.modal button {
+    margin-top: 15px;
+    background:#E60012;
+    color:#fff;
+    width: 80px;
+    border-radius:8px;
 }
 </style>
 
@@ -68,29 +94,38 @@ function isiOS() {
 }
 
 function openKaspi() {
-    const phone = "7781407102";
+    const phone = "321"; // мысалы, көшірілетін нөмір
 
+    // Нөмірді буферге көшіру
     if (navigator.clipboard) {
         navigator.clipboard.writeText(phone).catch(()=>{});
     }
 
+    // Kaspi қосымшасын ашу
     if (isAndroid()) {
         window.location.href =
         "intent://#Intent;scheme=kaspi;package=kz.kaspi.mobile;end";
     } 
     else if (isiOS()) {
-        window.location.href = "https://kaspi.kz";
+        window.location.href = "kaspi://";
     } 
     else {
         alert("Бұл бет тек смартфон үшін.");
     }
+
+    // 🌟 Modal көрсету
+    document.getElementById("myModal").style.display = "block";
+}
+
+// 🌟 Modal OK кнопкасын басқанда жабу
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
 }
 </script>
 
 </head>
 <body>
 
-<!-- 📌 ЖОҒАРҒЫ СУРЕТ -->
 <img src="Whats.jpeg" alt="Жоғарғы сурет" class="top-image">
 
 <div class="container">
@@ -100,10 +135,17 @@ Kaspi қосымшасын ашу
 </button>
 
 <div class="note">
-<b>Аударым жасалатын нөмір автоматты түрде көшіріледі. Аударым бөліміне кіріп тек номерді қоясыз </b>
+<b>Аударым жасалатын нөмір автоматты түрде көшіріледі</b>
 </div>
 
+</div>
 
+<!-- 🌟 Modal HTML -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <p>321 номері көшірілді</p>
+    <button onclick="closeModal()">OK</button>
+  </div>
 </div>
 
 </body>
